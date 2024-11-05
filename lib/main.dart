@@ -1,172 +1,235 @@
 import 'package:flutter/material.dart';
+// import 'index.dart';
+import 'java.dart';
+import 'python.dart';
+import 'nodejs.dart';
+import 'react.dart';
+import 'flutter.dart';
+import 'javascript.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.blueAccent,
-            title: const Text('CA129'),
-            centerTitle: true,
-          ),
-          body: Center(
-            child: SingleChildScrollView(
-              child: Column(
+      home: MainScreen(),
+    );
+  }
+}
+
+class MainScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          centerTitle: true,
+          title: Text(' Courses'),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              // First Row with two cards
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  
-                  Container(
-                    height: 100,
-                    width: 400,
-                    margin: const EdgeInsets.only(bottom: 15,top: 5),
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.cyan,
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          'images/logo.png',
-                          width: 60,
-                          height: 60,
-                        ),
-                        const SizedBox(width: 15), 
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text(
-                              ' Ahmed Abdirahim ',
-                              style: TextStyle(fontSize: 20),
-                              textAlign: TextAlign.left,
-                            ),
-                            Text(
-                              'Graphic Designer',
-                              style: TextStyle(fontSize: 18),
-                              textAlign: TextAlign.left,
-                            ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FlutterScreen()),
+                      );
+                    },
+                    child: Card(
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        width: 150,
+                        child: Column(
+                          children: [
+                            Image.asset('assets/flutter.png',
+                                width: 80, height: 80),
+                            SizedBox(height: 10),
+                            Text('Flutter',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold)),
+                            SizedBox(height: 5),
+                            Text('\$45',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.grey[700])),
                           ],
                         ),
-                      ],
-                    ),
-                  ),
-
-                  const SizedBox(height: 20), 
-
-                  // Card 1
-                  Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: const [
-                              Icon(Icons.home, size: 40, color: Colors.blue),
-                              Icon(Icons.phone, size: 40, color: Colors.green),
-                              Icon(Icons.email, size: 40, color: Colors.red),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: const [
-                              Text('Home'),
-                              Text('Phone'),
-                              Text('Email'),
-                            ],
-                          ),
-                        ],
                       ),
                     ),
                   ),
-
-                  const SizedBox(height: 20), // Spacing before the next section
-
-                  // Multiple Cards
-                  Column(
-                    children: [
-                      Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Row(
-                            children: const [
-                              Icon(Icons.home, size: 40),
-                              SizedBox(width: 10),
-                              Text('Home'),
-                            ],
-                          ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => JavaScriptScreen()),
+                      );
+                    },
+                    child: Card(
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        width: 150,
+                        child: Column(
+                          children: [
+                            Image.asset('assets/javascript.png',
+                                width: 80, height: 80),
+                            SizedBox(height: 10),
+                            Text('JavaScript',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold)),
+                            SizedBox(height: 5),
+                            Text('\$45',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.grey[700])),
+                          ],
                         ),
                       ),
-                      const SizedBox(height: 10),
-
-                      Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Row(
-                            children: const [
-                              Icon(Icons.phone, size: 40),
-                              SizedBox(width: 10),
-                              Text('Phone'),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-
-                      Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Row(
-                            children: const [
-                              Icon(Icons.call, size: 40),
-                              SizedBox(width: 10),
-                              Text('Call'),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-
-                      Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Row(
-                            children: const [
-                              Icon(Icons.car_crash, size: 40),
-                              SizedBox(width: 10),
-                              Text('Car Crash'),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-
-                      Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Row(
-                            children: const [
-                              Icon(Icons.logout, size: 40),
-                              SizedBox(width: 10),
-                              Text('Logout'),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ],
               ),
-            ),
+              SizedBox(height: 20),
+
+              // Second Row with two cards
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => NodeJSscreen()),
+                      );
+                    },
+                    child: Card(
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        width: 150,
+                        child: Column(
+                          children: [
+                            Image.asset('assets/nodejs.png',
+                                width: 80, height: 80),
+                            SizedBox(height: 10),
+                            Text('Node.js',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold)),
+                            SizedBox(height: 5),
+                            Text('\$45',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.grey[700])),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PythonScreen()),
+                      );
+                    },
+                    child: Card(
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        width: 150,
+                        child: Column(
+                          children: [
+                            Image.asset('assets/python.jpeg',
+                                width: 80, height: 80),
+                            SizedBox(height: 10),
+                            Text('Python',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold)),
+                            SizedBox(height: 5),
+                            Text('\$45',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.grey[700])),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+
+              // Third Row with two cards
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ReactScreen()),
+                      );
+                    },
+                    child: Card(
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        width: 150,
+                        child: Column(
+                          children: [
+                            Image.asset('assets/react.png',
+                                width: 80, height: 80),
+                            SizedBox(height: 10),
+                            Text('React',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold)),
+                            SizedBox(height: 5),
+                            Text('\$45',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.grey[700])),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                JavaScreen()), // Adjust to the correct screen
+                      );
+                    },
+                    child: Card(
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        width: 150,
+                        child: Column(
+                          children: [
+                            Image.asset('assets/java.png',
+                                width: 80, height: 80),
+                            SizedBox(height: 10),
+                            Text('Java',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold)),
+                            SizedBox(height: 5),
+                            Text('\$45',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.grey[700])),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+            ],
           ),
         ),
       ),
